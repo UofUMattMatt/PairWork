@@ -1,0 +1,12 @@
+\\chips.eng.utah.edu\home\howa\.win_my_documents\visual studio 2013\Projects\GitHubBrowser\GitHubBrowser\bin\Debug\GitHubBrowser.exe.config
+\\chips.eng.utah.edu\home\howa\.win_my_documents\visual studio 2013\Projects\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.csprojResolveAssemblyReference.cache
+\\chips.eng.utah.edu\home\howa\.win_my_documents\visual studio 2013\Projects\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.Properties.Resources.resources
+\\chips.eng.utah.edu\home\howa\.win_my_documents\visual studio 2013\Projects\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.csproj.GenerateResource.Cache
+\\chips.eng.utah.edu\home\howa\.win_my_documents\visual studio 2013\Projects\GitHubBrowser\GitHubBrowser\bin\Debug\GitHubBrowser.exe
+\\chips.eng.utah.edu\home\howa\.win_my_documents\visual studio 2013\Projects\GitHubBrowser\GitHubBrowser\bin\Debug\GitHubBrowser.pdb
+\\chips.eng.utah.edu\home\howa\.win_my_documents\visual studio 2013\Projects\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.exe
+\\chips.eng.utah.edu\home\howa\.win_my_documents\visual studio 2013\Projects\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.pdb
+\\chips.eng.utah.edu\home\howa\.win_my_documents\visual studio 2013\Projects\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.GitHubBrowser.resources
+C:\Users\howa\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\bin\Debug\GitHubBrowser.exe.config
+C:\Users\howa\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.exe
+C:\Users\howa\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.pdb
