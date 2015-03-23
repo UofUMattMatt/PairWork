@@ -16,3 +16,9 @@ C:\Users\howa\Source\Repos\PairWork2\GitHubBrowser\GitHubBrowser\obj\Debug\GitHu
 C:\Users\willden\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\bin\Debug\GitHubBrowser.exe.config
 C:\Users\willden\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.exe
 C:\Users\willden\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.pdb
+C:\Users\willden\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\bin\Debug\GitHubBrowser.exe
+C:\Users\willden\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\bin\Debug\GitHubBrowser.pdb
+C:\Users\willden\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.csprojResolveAssemblyReference.cache
+C:\Users\willden\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.GitHubBrowser.resources
+C:\Users\willden\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.Properties.Resources.resources
+C:\Users\willden\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.csproj.GenerateResource.Cache
