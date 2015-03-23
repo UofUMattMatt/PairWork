@@ -16,7 +16,7 @@ namespace Restful
     {
         // You'll need to put your own OAuth token here
         // It needs to have repo deletion capability
-        private const string TOKEN = "731445070e788d2d0282b80b4ce7b92c343854bc";
+        private const string TOKEN = "dabe9c33dae687b7c5ab10d16fd80647aef0b62b";
 
         // You'll need to put your own GitHub user name here
         private const string USER_NAME = "mahowa";
@@ -88,6 +88,8 @@ namespace Restful
         {
             using (HttpClient client = CreateClient())
             {
+                System.TimeSpan timeout = new System.TimeSpan(0, 1, 0);
+                client.Timeout = timeout;
                 HttpResponseMessage response = await client.GetAsync("/users");
                 if (response.IsSuccessStatusCode)
                 {

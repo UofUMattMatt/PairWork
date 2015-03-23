@@ -14,7 +14,7 @@ namespace githubConnect
     {
         // You'll need to put your own OAuth token here
         // It needs to have repo deletion capability
-        private const string TOKEN = "731445070e788d2d0282b80b4ce7b92c343854bc";
+        private const string TOKEN = "dabe9c33dae687b7c5ab10d16fd80647aef0b62b";
 
         // You'll need to put your own GitHub user name here
         private const string USER_NAME = "mahowa";
@@ -41,32 +41,42 @@ namespace githubConnect
         }
 
 
-
         /// <summary>
         /// Prints out the names of the organizations to which the user belongs
         /// </summary> 
-        public  async void GetReposAsync()
+        public async Task<Dictionary<string, Repository>> GetReposAsync(string searchterm)
         {
             repos = new Dictionary<string, Repository>();
             using (HttpClient client = CreateClient())
             {
-                HttpResponseMessage response = await client.GetAsync("/repositories");
+                HttpResponseMessage response = await client.GetAsync("/search/repositories?q=" + searchterm);
                 if (response.IsSuccessStatusCode)
                 {
+                    String login = "", avatar = "", repname = "" , description = "";
                     String result = await response.Content.ReadAsStringAsync();
                     dynamic orgs = JsonConvert.DeserializeObject(result);
-                    foreach (dynamic org in orgs)
+                    foreach (dynamic c in orgs.items)
                     {
-                        Repository temp = new Repository(org.login, org.name, org.description, org.avatar_url, null);
-                        repos.Add(org.login, temp);
+                            repname = c.name;
+                            login = c.owner.login;
+                            avatar = c.owner.avatar_url;  
+                            description = c.description;
+
+                            Repository temp = new Repository(login, repname, description, avatar, null);
+                            repos.Add(login + repname, temp);               //KEY IS LOGIN + REPNAME
+
+                     
                     }
+
+                    return repos;
                 }
                 else
                 {
-                    Console.WriteLine("Error: " + response.StatusCode);
-                    Console.WriteLine(response.ReasonPhrase);
+                    throw new Exception("YOU SUCK ");
+                   /* Console.WriteLine("Error: " + response.StatusCode);
+                    Console.WriteLine(response.ReasonPhrase);*/
                 }
-                foreach (var key in repos)
+         /*       foreach (var key in repos)
                 {
                     using (HttpClient client2 = CreateClient())
                     {
@@ -86,7 +96,7 @@ namespace githubConnect
                             Console.WriteLine(response2.ReasonPhrase);
                         }
                     }
-                }
+                }*/
             }
         }
     }

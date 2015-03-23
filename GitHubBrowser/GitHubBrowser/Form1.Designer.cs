@@ -79,7 +79,7 @@
             this.repDescription});
             this.searchResults.Location = new System.Drawing.Point(12, 55);
             this.searchResults.Name = "searchResults";
-            this.searchResults.Size = new System.Drawing.Size(791, 286);
+            this.searchResults.Size = new System.Drawing.Size(791, 300);
             this.searchResults.TabIndex = 3;
             this.searchResults.UseCompatibleStateImageBehavior = false;
             this.searchResults.View = System.Windows.Forms.View.Details;
@@ -156,6 +156,7 @@
             // 
             // GitHubBrowser
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 387);

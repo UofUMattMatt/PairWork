@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using githubConnect;
-
+using System.Windows.Media.Imaging;
+using System.IO;
+using System.Net;
 
 namespace GitHubBrowser
 {
     public partial class GitHubBrowser : Form
     {
-        Connect test;
+        private Connect test;
         
         public GitHubBrowser()
         {
@@ -27,15 +29,49 @@ namespace GitHubBrowser
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
+            searchResults.Items.Clear();
             string search = searchText.Text;
-            test.GetReposAsync();
-            string tmp = "";
-            foreach (var t in test.repos)
+            Dictionary<string, Repository> tempr = await test.GetReposAsync(searchText.Text);
+
+            ImageList avatars = ImageList(tempr);
+            
+            
+            foreach (var t in tempr)
             {
-                tmp = tmp + "/n" + t;
+                searchResults.SmallImageList = avatars;
+                ListViewItem row = new ListViewItem(t.Value.Avatar);
+                row.SubItems.Add(t.Value.RepName);
+                row.SubItems.Add(t.Value.Username);
+                row.SubItems.Add(t.Value.Description);
+                searchResults.Items.Add(row);
             }
+           
+        }
+        public static Image GetImageFromUrl(string url)
+        {
+            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(url);
+
+            using (HttpWebResponse httpWebReponse = (HttpWebResponse)httpWebRequest.GetResponse())
+            {
+                using (Stream stream = httpWebReponse.GetResponseStream())
+                {
+                    return Image.FromStream(stream);
+                }
+            }
+        }
+
+        public ImageList ImageList(Dictionary<string, Repository> tempr)
+        {
+            ImageList imagelist1 = new ImageList();
+            imagelist1.ImageSize = new Size(25, 25);
+            
+            foreach(var t in tempr){
+                Image i = GetImageFromUrl(t.Value.Avatar);
+                imagelist1.Images.Add(i);
+            }
+            return imagelist1;
         }
 
     }
