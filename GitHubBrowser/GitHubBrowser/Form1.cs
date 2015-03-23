@@ -36,7 +36,6 @@ namespace GitHubBrowser
             {
                 tmp = tmp + "/n" + t;
             }
-            testBox.Text = tmp;
         }
 
     }

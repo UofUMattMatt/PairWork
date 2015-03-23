@@ -41,7 +41,6 @@
             this.searchBox = new System.Windows.Forms.ComboBox();
             this.searchText = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.testBox = new System.Windows.Forms.TextBox();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +79,7 @@
             this.repDescription});
             this.searchResults.Location = new System.Drawing.Point(12, 55);
             this.searchResults.Name = "searchResults";
-            this.searchResults.Size = new System.Drawing.Size(791, 144);
+            this.searchResults.Size = new System.Drawing.Size(791, 286);
             this.searchResults.TabIndex = 3;
             this.searchResults.UseCompatibleStateImageBehavior = false;
             this.searchResults.View = System.Windows.Forms.View.Details;
@@ -155,20 +154,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // testBox
-            // 
-            this.testBox.Location = new System.Drawing.Point(25, 216);
-            this.testBox.Multiline = true;
-            this.testBox.Name = "testBox";
-            this.testBox.Size = new System.Drawing.Size(436, 75);
-            this.testBox.TabIndex = 9;
-            // 
             // GitHubBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 387);
-            this.Controls.Add(this.testBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.searchText);
             this.Controls.Add(this.searchBox);
@@ -201,7 +191,6 @@
         private System.Windows.Forms.ComboBox searchBox;
         private System.Windows.Forms.TextBox searchText;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox testBox;
     }
 }
 
