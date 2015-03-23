@@ -15,7 +15,7 @@ namespace Restful
     {
         // You'll need to put your own OAuth token here
         // It needs to have repo deletion capability
-        private const string TOKEN = "";
+        private const string TOKEN = "cc1a8751a0cf48ca0936019bf3043dca66fe7278 ";
 
         // You'll need to put your own GitHub user name here
         private const string USER_NAME = "";
