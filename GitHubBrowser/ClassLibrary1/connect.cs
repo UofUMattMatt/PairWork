@@ -16,7 +16,7 @@ namespace ClassLibrary1
         private const string USER_NAME = "willdenms";
 
         // You'll need to put your own login name here
-        private const string EMAIL = "wildenms@gmail.com";
+        private const string EMAIL = "willdenms@gmail.com";
 
         // You'll need to put one of your public REPOs here
         private const string PUBLIC_REPO = "TestRepo";
