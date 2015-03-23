@@ -7,6 +7,7 @@ using System.IO;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Dynamic;
+using System.Net.Http;
  
 
 namespace Restful
@@ -15,7 +16,7 @@ namespace Restful
     {
         // You'll need to put your own OAuth token here
         // It needs to have repo deletion capability
-        private const string TOKEN = "22cb36e131238bf6a62f62c23793c800aa25b6a9 ";
+        private const string TOKEN = "a5bc197f0f814935ac94636cb76f65b1f23a6728";
 
         // You'll need to put your own GitHub user name here
         private const string USER_NAME = "willdenms";
