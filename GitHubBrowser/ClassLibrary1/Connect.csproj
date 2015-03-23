@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="connect.cs" />
+    <Compile Include="Connect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +54,12 @@
     <Content Include="Solution items\Newtonsoft.Json.dll" />
     <Content Include="Solution items\Newtonsoft.Json.pdb" />
     <Content Include="Solution items\Newtonsoft.Json.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GitHubBrowserClassLibrary\GitHubBrowserClasses.csproj">
+      <Project>{3fd4039e-717f-4524-9fc9-68fa075b544d}</Project>
+      <Name>GitHubBrowserClasses</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

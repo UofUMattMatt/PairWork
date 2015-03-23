@@ -25,8 +25,10 @@ namespace githubConnect
         // You'll need to put one of your public REPOs here
         private const string PUBLIC_REPO = "TestRepo";
 
+        public Dictionary<string, Repository> repos;
+
         public Connect() { }
-        public static HttpClient CreateClient()
+        public HttpClient CreateClient()
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://api.github.com/");
@@ -37,15 +39,15 @@ namespace githubConnect
             client.DefaultRequestHeaders.Add("Authorization", "token " + TOKEN);
             return client;
         }
-    
+
 
 
         /// <summary>
         /// Prints out the names of the organizations to which the user belongs
         /// </summary> 
-        public static async void GetReposAsync()
+        public  async void GetReposAsync()
         {
-            Dictionary<string, Repository> repos = new Dictionary<string, Repository>();
+            repos = new Dictionary<string, Repository>();
             using (HttpClient client = CreateClient())
             {
                 HttpResponseMessage response = await client.GetAsync("/repositories");
@@ -69,7 +71,7 @@ namespace githubConnect
                     using (HttpClient client2 = CreateClient())
                     {
                         HttpResponseMessage response2 = await client2.GetAsync("GET /users/:" + key.Key);
-                        if (response.IsSuccessStatusCode)
+                        if (response2.IsSuccessStatusCode)
                         {
                             String result2 = await response2.Content.ReadAsStringAsync();
                             dynamic orgs2 = JsonConvert.DeserializeObject(result2);
@@ -80,8 +82,8 @@ namespace githubConnect
                         }
                         else
                         {
-                            Console.WriteLine("Error: " + response.StatusCode);
-                            Console.WriteLine(response.ReasonPhrase);
+                            Console.WriteLine("Error: " + response2.StatusCode);
+                            Console.WriteLine(response2.ReasonPhrase);
                         }
                     }
                 }

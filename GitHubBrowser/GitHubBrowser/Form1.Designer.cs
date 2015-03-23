@@ -39,7 +39,9 @@
             this.prev_b = new System.Windows.Forms.Button();
             this.nxt_b = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchText = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.testBox = new System.Windows.Forms.TextBox();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +80,7 @@
             this.repDescription});
             this.searchResults.Location = new System.Drawing.Point(12, 55);
             this.searchResults.Name = "searchResults";
-            this.searchResults.Size = new System.Drawing.Size(791, 304);
+            this.searchResults.Size = new System.Drawing.Size(791, 144);
             this.searchResults.TabIndex = 3;
             this.searchResults.UseCompatibleStateImageBehavior = false;
             this.searchResults.View = System.Windows.Forms.View.Details;
@@ -136,19 +138,39 @@
             this.searchBox.TabIndex = 6;
             this.searchBox.SelectedIndexChanged += new System.EventHandler(this.searchBox_SelectedIndexChanged);
             // 
-            // textBox1
+            // searchText
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 20);
-            this.textBox1.TabIndex = 7;
+            this.searchText.Location = new System.Drawing.Point(12, 27);
+            this.searchText.Name = "searchText";
+            this.searchText.Size = new System.Drawing.Size(206, 20);
+            this.searchText.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(308, 27);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(72, 20);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // testBox
+            // 
+            this.testBox.Location = new System.Drawing.Point(25, 216);
+            this.testBox.Multiline = true;
+            this.testBox.Name = "testBox";
+            this.testBox.Size = new System.Drawing.Size(436, 75);
+            this.testBox.TabIndex = 9;
             // 
             // GitHubBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 387);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.testBox);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.searchText);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.nxt_b);
             this.Controls.Add(this.prev_b);
@@ -177,7 +199,9 @@
         private System.Windows.Forms.Button prev_b;
         private System.Windows.Forms.Button nxt_b;
         private System.Windows.Forms.ComboBox searchBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchText;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox testBox;
     }
 }
 
