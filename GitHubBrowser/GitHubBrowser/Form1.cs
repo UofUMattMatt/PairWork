@@ -17,5 +17,10 @@ namespace GitHubBrowser
             InitializeComponent();
         }
 
+        private void searchBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

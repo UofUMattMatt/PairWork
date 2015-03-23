@@ -32,13 +32,14 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchResults = new System.Windows.Forms.ListView();
+            this.repAvatar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.repName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.repOwner = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.repAvatar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.repDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.prev_b = new System.Windows.Forms.Button();
             this.nxt_b = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +83,11 @@
             this.searchResults.UseCompatibleStateImageBehavior = false;
             this.searchResults.View = System.Windows.Forms.View.Details;
             // 
+            // repAvatar
+            // 
+            this.repAvatar.Text = "Avatar";
+            this.repAvatar.Width = 80;
+            // 
             // repName
             // 
             this.repName.Text = "Repository";
@@ -91,11 +97,6 @@
             // 
             this.repOwner.Text = "Owner";
             this.repOwner.Width = 120;
-            // 
-            // repAvatar
-            // 
-            this.repAvatar.Text = "Avatar";
-            this.repAvatar.Width = 80;
             // 
             // repDescription
             // 
@@ -129,16 +130,25 @@
             "Profile Info",
             "Language",
             "Rating"});
-            this.searchBox.Location = new System.Drawing.Point(12, 27);
+            this.searchBox.Location = new System.Drawing.Point(224, 27);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(541, 21);
+            this.searchBox.Size = new System.Drawing.Size(78, 21);
             this.searchBox.TabIndex = 6;
+            this.searchBox.SelectedIndexChanged += new System.EventHandler(this.searchBox_SelectedIndexChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 27);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(206, 20);
+            this.textBox1.TabIndex = 7;
             // 
             // GitHubBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 387);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.nxt_b);
             this.Controls.Add(this.prev_b);
@@ -167,6 +177,7 @@
         private System.Windows.Forms.Button prev_b;
         private System.Windows.Forms.Button nxt_b;
         private System.Windows.Forms.ComboBox searchBox;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
