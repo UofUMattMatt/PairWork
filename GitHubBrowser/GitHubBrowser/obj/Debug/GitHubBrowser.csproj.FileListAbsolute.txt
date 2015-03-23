@@ -10,3 +10,6 @@
 C:\Users\howa\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\bin\Debug\GitHubBrowser.exe.config
 C:\Users\howa\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.exe
 C:\Users\howa\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.pdb
+C:\Users\howa\Source\Repos\PairWork2\GitHubBrowser\GitHubBrowser\bin\Debug\GitHubBrowser.exe.config
+C:\Users\howa\Source\Repos\PairWork2\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.exe
+C:\Users\howa\Source\Repos\PairWork2\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.pdb
