@@ -39,7 +39,7 @@ namespace ClassLibrary1
 
         /// <summary>
         /// Prints out the names of the organizations to which the user belongs
-        /// </summary>
+        /// </summary> 
         public static async void GetRepos()
         {
             using (HttpClient client = CreateClient())
