@@ -1,0 +1,4 @@
+C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\GitHubBrowserClassLibrary\bin\Debug\ClassLibrary1.dll
+C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\GitHubBrowserClassLibrary\bin\Debug\ClassLibrary1.pdb
+C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\GitHubBrowserClassLibrary\obj\Debug\ClassLibrary1.dll
+C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\GitHubBrowserClassLibrary\obj\Debug\ClassLibrary1.pdb
