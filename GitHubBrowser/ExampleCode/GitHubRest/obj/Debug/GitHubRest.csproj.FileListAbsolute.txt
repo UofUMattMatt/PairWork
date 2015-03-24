@@ -1,0 +1,7 @@
+C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\ExampleCode\GitHubRest\bin\Debug\GitHubRest.exe.config
+C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\ExampleCode\GitHubRest\bin\Debug\GitHubRest.exe
+C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\ExampleCode\GitHubRest\bin\Debug\GitHubRest.pdb
+C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\ExampleCode\GitHubRest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\ExampleCode\GitHubRest\obj\Debug\GitHubRest.csprojResolveAssemblyReference.cache
+C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\ExampleCode\GitHubRest\obj\Debug\GitHubRest.exe
+C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\ExampleCode\GitHubRest\obj\Debug\GitHubRest.pdb
