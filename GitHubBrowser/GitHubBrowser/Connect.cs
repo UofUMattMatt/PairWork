@@ -14,16 +14,16 @@ namespace githubConnect
     {
         // You'll need to put your own OAuth token here
         // It needs to have repo deletion capability
-        private const string TOKEN = "dabe9c33dae687b7c5ab10d16fd80647aef0b62b";
+        private const string TOKEN = "4967d94931588f4486b0245f27dbe31cf8ad6351";
 
         // You'll need to put your own GitHub user name here
-        private const string USER_NAME = "mahowa";
+        private const string USER_NAME = "UofUMattMatt";
 
         // You'll need to put your own login name here
-        private const string EMAIL = "jdbball1@gmail.com";
+        private const string EMAIL = "ramilakus@yahoo.com";
 
         // You'll need to put one of your public REPOs here
-        private const string PUBLIC_REPO = "TEST_REPO";
+        private const string PUBLIC_REPO = "PairWork";
 
         public Dictionary<string, Repository> repos;
 
@@ -46,6 +46,10 @@ namespace githubConnect
         /// </summary> 
         public async Task<Dictionary<string, Repository>> GetReposAsync(string searchterm)
         {
+            if(searchterm == "")
+            {
+                throw new ArgumentNullException("search parameters are null");
+            }
             repos = new Dictionary<string, Repository>();
             using (HttpClient client = CreateClient())
             {

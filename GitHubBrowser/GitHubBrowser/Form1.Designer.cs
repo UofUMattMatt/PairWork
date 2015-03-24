@@ -51,7 +51,7 @@
             this.helpToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(815, 24);
+            this.mainMenuStrip.Size = new System.Drawing.Size(899, 24);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -66,6 +66,7 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // searchResults
             // 
@@ -77,9 +78,9 @@
             this.repName,
             this.repOwner,
             this.repDescription});
-            this.searchResults.Location = new System.Drawing.Point(12, 55);
+            this.searchResults.Location = new System.Drawing.Point(24, 66);
             this.searchResults.Name = "searchResults";
-            this.searchResults.Size = new System.Drawing.Size(791, 300);
+            this.searchResults.Size = new System.Drawing.Size(585, 464);
             this.searchResults.TabIndex = 3;
             this.searchResults.UseCompatibleStateImageBehavior = false;
             this.searchResults.View = System.Windows.Forms.View.Details;
@@ -107,7 +108,7 @@
             // prev_b
             // 
             this.prev_b.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.prev_b.Location = new System.Drawing.Point(12, 361);
+            this.prev_b.Location = new System.Drawing.Point(12, 552);
             this.prev_b.Name = "prev_b";
             this.prev_b.Size = new System.Drawing.Size(59, 23);
             this.prev_b.TabIndex = 4;
@@ -117,7 +118,7 @@
             // nxt_b
             // 
             this.nxt_b.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nxt_b.Location = new System.Drawing.Point(77, 361);
+            this.nxt_b.Location = new System.Drawing.Point(77, 552);
             this.nxt_b.Name = "nxt_b";
             this.nxt_b.Size = new System.Drawing.Size(59, 23);
             this.nxt_b.TabIndex = 5;
@@ -159,7 +160,7 @@
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 387);
+            this.ClientSize = new System.Drawing.Size(899, 578);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.searchText);
             this.Controls.Add(this.searchBox);
