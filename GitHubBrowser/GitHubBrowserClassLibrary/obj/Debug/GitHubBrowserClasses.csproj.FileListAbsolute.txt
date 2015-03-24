@@ -8,3 +8,7 @@ C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowserClassLibrary\bin
 C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowserClassLibrary\obj\Debug\GitHubBrowserClasses.csprojResolveAssemblyReference.cache
 C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowserClassLibrary\obj\Debug\ClassLibrary1.dll
 C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowserClassLibrary\obj\Debug\ClassLibrary1.pdb
+C:\Users\howa\Source\Repos\PairWork5\GitHubBrowser\GitHubBrowserClassLibrary\bin\Debug\ClassLibrary1.dll
+C:\Users\howa\Source\Repos\PairWork5\GitHubBrowser\GitHubBrowserClassLibrary\bin\Debug\ClassLibrary1.pdb
+C:\Users\howa\Source\Repos\PairWork5\GitHubBrowser\GitHubBrowserClassLibrary\obj\Debug\ClassLibrary1.dll
+C:\Users\howa\Source\Repos\PairWork5\GitHubBrowser\GitHubBrowserClassLibrary\obj\Debug\ClassLibrary1.pdb

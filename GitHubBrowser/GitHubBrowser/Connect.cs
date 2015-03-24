@@ -16,7 +16,7 @@ namespace githubConnect
     {
         // You'll need to put your own OAuth token here
         // It needs to have repo deletion capability
-        private const string TOKEN = "3792714c6f71ccff9935b415a8d29c9c77ce0964";
+        private const string TOKEN = "9aa3463f2763e664792b13534949acba34d5502f";
 
         // You'll need to put your own GitHub user name here
         private const string USER_NAME = "mahowa";
@@ -42,72 +42,49 @@ namespace githubConnect
             return client;
         }
 
-
         /// <summary>
         /// Prints out the names of the organizations to which the user belongs
         /// </summary> 
-        public async Task<Dictionary<string, Repository>> GetReposAsync(string searchterm)
+        public async Task<Dictionary<string, Repository>> GetReposAsync(string searchterm, CancellationToken cancel)
         {
-            if(searchterm == "")
-            {
-                throw new ArgumentNullException("search parameters are null");
-            }
-            repos = new Dictionary<string, Repository>();
+            repos = new Dictionary<string, Repository>();                                                       //Dictionary of repositories
             using (HttpClient client = CreateClient())
             {
-                HttpResponseMessage response = await client.GetAsync("/search/repositories?q=" + searchterm);
+                HttpResponseMessage response = await client.GetAsync("/search/repositories?q=" + searchterm);   
                 if (response.IsSuccessStatusCode)
                 {
-                    String login = "", avatar = "", repname = "" , description = "";
+                    String login = "", avatar = "", repname = "", description = "", lang = "", bytes = "";
+                    Languages language;
                     String result = await response.Content.ReadAsStringAsync();
                     dynamic orgs = JsonConvert.DeserializeObject(result);
                     foreach (dynamic c in orgs.items)
-                    {
-                            repname = c.name;
-                            login = c.owner.login;
-                            avatar = c.owner.avatar_url;  
-                            description = c.description;
-
-                            Repository temp = new Repository(login, repname, description, avatar, null);
-                            repos.Add(login + repname, temp);               //KEY IS LOGIN + REPNAME
-
-                     
+                    {                                       //Parse
+                        repname = c.name;               //Repository name
+                        login = c.owner.login;          //Username
+                        avatar = c.owner.avatar_url;    //avatar url
+                        description = c.description;    //repo description
+                        lang = c.language;              //main repo Language
+                        bytes = c.size;                 //repo size
+                        if (String.IsNullOrWhiteSpace(lang))
+                            lang = "Unknown";           //Unknown repo language
+                        language = new Languages(lang, bytes);
+                        Repository temp = new Repository(login, repname, description, avatar, null, language);      //Creates repository object
+                        repos.Add(login + repname, temp);                 //KEY IS LOGIN + REPNAME
+                        cancel.ThrowIfCancellationRequested();            //Allows cancelation of task
                     }
-                    header = response.Headers.GetValues("Link").FirstOrDefault();
-                    pageSift(header);
-                    return repos;
+                    header = response.Headers.GetValues("Link").FirstOrDefault();   //Get link header
+                    pageSift(header);       //Get page number (GITHUB API MAXIMUM '34')
                 }
                 else
-                {
-                   // return repos;
                     throw new Exception("Connection Failed ");
-                }
-         /*       foreach (var key in repos)
-                {
-                    using (HttpClient client2 = CreateClient())
-                    {
-                        HttpResponseMessage response2 = await client2.GetAsync("GET /users/:" + key.Key);
-                        if (response2.IsSuccessStatusCode)
-                        {
-                            String result2 = await response2.Content.ReadAsStringAsync();
-                            dynamic orgs2 = JsonConvert.DeserializeObject(result2);
-                            foreach (dynamic org in orgs2)
-                            {
-                                repos[key.Key].Email = org.email;
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Error: " + response2.StatusCode);
-                            Console.WriteLine(response2.ReasonPhrase);
-                        }
-                    }
-                }*/
+                return repos;
             }
         }
-        public void pageSift(string link){
-            string pattern = @"(\d+)";
 
+
+        public void pageSift(string link)
+        {
+            string pattern = @"(\d+)";
             foreach (Match match in Regex.Matches(link, pattern))
                 pageNum = Convert.ToInt16(match.Value);
         }

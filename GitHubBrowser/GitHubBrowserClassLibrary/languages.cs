@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace githubConnect
 {
-    class languages
+    public class Languages
     {
-        public languages(string t, int l)
+        public Languages(string t, string l)
         {
             type = t;
             lines = l;
         }
         public string type { get; private set; }
-        public int lines { get; private set; }
+        public string lines { get; private set; }
     }
 }

@@ -48,12 +48,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.langs = new System.Windows.Forms.Label();
             this.bytes = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.bytelabel = new System.Windows.Forms.Label();
             this.repolabel = new System.Windows.Forms.Label();
             this.errorMessage = new System.Windows.Forms.Label();
             this.pages = new System.Windows.Forms.Label();
+            this.loading = new System.Windows.Forms.PictureBox();
+            this.email = new System.Windows.Forms.Label();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loading)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenuStrip
@@ -78,6 +81,7 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click_1);
             // 
             // searchResults
             // 
@@ -144,7 +148,6 @@
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(78, 21);
             this.searchBox.TabIndex = 6;
-            this.searchBox.SelectedIndexChanged += new System.EventHandler(this.searchBox_SelectedIndexChanged);
             // 
             // searchText
             // 
@@ -152,7 +155,6 @@
             this.searchText.Name = "searchText";
             this.searchText.Size = new System.Drawing.Size(206, 20);
             this.searchText.TabIndex = 7;
-            this.searchText.TextChanged += new System.EventHandler(this.searchText_TextChanged);
             // 
             // button1
             // 
@@ -162,7 +164,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.SearchButton);
             // 
             // cancel
             // 
@@ -204,7 +206,6 @@
             this.repo.Size = new System.Drawing.Size(80, 17);
             this.repo.TabIndex = 12;
             this.repo.Text = "Repository:";
-            this.repo.Click += new System.EventHandler(this.repo_Click);
             // 
             // label1
             // 
@@ -237,17 +238,16 @@
             this.bytes.Size = new System.Drawing.Size(43, 17);
             this.bytes.TabIndex = 15;
             this.bytes.Text = "Bytes";
-            this.bytes.Click += new System.EventHandler(this.bytes_Click);
             // 
-            // label3
+            // bytelabel
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(630, 266);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "label3";
+            this.bytelabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bytelabel.AutoSize = true;
+            this.bytelabel.Location = new System.Drawing.Point(630, 266);
+            this.bytelabel.Name = "bytelabel";
+            this.bytelabel.Size = new System.Drawing.Size(35, 13);
+            this.bytelabel.TabIndex = 16;
+            this.bytelabel.Text = "label3";
             // 
             // repolabel
             // 
@@ -263,6 +263,7 @@
             // 
             // errorMessage
             // 
+            this.errorMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.errorMessage.AutoSize = true;
             this.errorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorMessage.ForeColor = System.Drawing.Color.Crimson;
@@ -280,30 +281,51 @@
             this.pages.Size = new System.Drawing.Size(0, 13);
             this.pages.TabIndex = 19;
             // 
+            // loading
+            // 
+            this.loading.Image = global::GitHubBrowser.Properties.Resources.loading;
+            this.loading.Location = new System.Drawing.Point(450, 16);
+            this.loading.Name = "loading";
+            this.loading.Size = new System.Drawing.Size(44, 37);
+            this.loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.loading.TabIndex = 20;
+            this.loading.TabStop = false;
+            // 
+            // email
+            // 
+            this.email.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.email.AutoSize = true;
+            this.email.Location = new System.Drawing.Point(579, 98);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(0, 13);
+            this.email.TabIndex = 21;
+            // 
             // GitHubBrowser
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(717, 393);
+            this.Controls.Add(this.mainMenuStrip);
+            this.Controls.Add(this.email);
+            this.Controls.Add(this.avatar);
+            this.Controls.Add(this.cancel);
+            this.Controls.Add(this.searchResults);
+            this.Controls.Add(this.loading);
             this.Controls.Add(this.pages);
             this.Controls.Add(this.errorMessage);
             this.Controls.Add(this.repolabel);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.bytelabel);
             this.Controls.Add(this.bytes);
             this.Controls.Add(this.langs);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.repo);
             this.Controls.Add(this.username);
-            this.Controls.Add(this.avatar);
-            this.Controls.Add(this.cancel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.searchText);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.nxt_b);
             this.Controls.Add(this.prev_b);
-            this.Controls.Add(this.searchResults);
-            this.Controls.Add(this.mainMenuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuStrip;
             this.MinimumSize = new System.Drawing.Size(488, 331);
@@ -312,6 +334,7 @@
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loading)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,10 +361,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label langs;
         private System.Windows.Forms.Label bytes;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label bytelabel;
         private System.Windows.Forms.Label repolabel;
         private System.Windows.Forms.Label errorMessage;
         private System.Windows.Forms.Label pages;
+        private System.Windows.Forms.PictureBox loading;
+        private System.Windows.Forms.Label email;
     }
 }
 
