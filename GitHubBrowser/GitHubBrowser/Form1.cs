@@ -18,13 +18,23 @@ namespace GitHubBrowser
     {
         private Connect test;
         public Dictionary<string, Repository> tempr;
+        private int currentPage = 1;
+        private int totalPages;
         
         public GitHubBrowser()
         {
             InitializeComponent();
             searchText.Focus();
             test = new Connect();
-            searchResults.FullRowSelect = true; 
+            searchResults.FullRowSelect = true;
+            repo.Visible = false;
+            repolabel.Visible = false;
+            label1.Visible = false;
+            bytes.Visible = false;
+            langs.Visible = false;
+            label3.Visible = false;
+            avatar.Visible = false;
+            username.Visible = false;
         }
 
         private void searchBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -34,7 +44,18 @@ namespace GitHubBrowser
 
         private async void button1_Click(object sender, EventArgs e)
         {
+            repo.Visible = false;
+            repolabel.Visible = false;
+            label1.Visible = false;
+            bytes.Visible = false;
+            langs.Visible = false;
+            label3.Visible = false;
+            avatar.Visible = false;
+            username.Visible = false;
+            currentPage = 1;
+            totalPages = 0;
             searchResults.Items.Clear();
+            errorMessage.Text = "";
             string searchParam = "";
 
             switch (searchBox.Text)
@@ -53,8 +74,8 @@ namespace GitHubBrowser
 
             try
             {
-            string search = searchText.Text;
-            tempr = await test.GetReposAsync(searchText.Text);
+           // string search = searchText.Text;
+            tempr = await test.GetReposAsync(searchParam);
 
             foreach (var t in tempr)
             {
@@ -68,6 +89,13 @@ namespace GitHubBrowser
             catch(ArgumentNullException)
             {
                 MessageBox.Show("Please select a search parameter");
+            }
+            catch(Exception){
+                errorMessage.Text = "ERROR: Connection Failed. Please Try again.";}
+            finally
+            {
+                totalPages = test.pageNum;
+                pageCount();
             }
            
 
@@ -85,9 +113,15 @@ namespace GitHubBrowser
                 avatar.ImageLocation = avatarURL;
                 username.Text = r.Username;
                 repolabel.Text = r.RepName;
-            
-               // avatar.Load(avatarURL);
             }
+            repo.Visible = true;
+            repolabel.Visible = true;
+            label1.Visible = true;
+            bytes.Visible = true;
+            langs.Visible = true;
+            label3.Visible = true;
+            avatar.Visible = true;
+            username.Visible = true;
         }
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,6 +143,141 @@ namespace GitHubBrowser
 
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void nxt_b_Click(object sender, EventArgs e)
+        {
+            repo.Visible = false;
+            repolabel.Visible = false;
+            label1.Visible = false;
+            bytes.Visible = false;
+            langs.Visible = false;
+            label3.Visible = false;
+            avatar.Visible = false;
+            username.Visible = false;
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                pageCount();
+                searchResults.Items.Clear();
+                errorMessage.Text = "";
+                string searchParam = "";
+                switch (searchBox.Text)
+                {
+                    case "Profile Info":
+                        searchParam = searchText.Text + "&page=" + currentPage;
+                        break;
+                    case "Language":
+                        searchParam = "language:" + searchText.Text + "&page=" + currentPage;;
+                        break;
+                    case "Rating":
+                        searchParam = "stars:" + searchText.Text + "&page=" + currentPage;;
+                        break;
+
+                }
+                try
+                {
+                    // string search = searchText.Text;
+                    tempr = await test.GetReposAsync(searchParam);
+
+                    foreach (var t in tempr)
+                    {
+                        ListViewItem row = new ListViewItem(t.Value.RepName);
+                        row.SubItems.Add(t.Value.Username);
+                        row.SubItems.Add(t.Value.Description);
+                        searchResults.Items.Add(row);
+                    }
+
+                }
+                catch (ArgumentNullException)
+                {
+                    MessageBox.Show("Please select a search parameter");
+                }
+                catch (Exception)
+                {
+                    errorMessage.Text = "ERROR: Connection Failed. Please Try again.";
+                }
+
+            }
+        }
+
+        private async void prev_b_Click(object sender, EventArgs e)
+        {
+            repo.Visible = false;
+            repolabel.Visible = false;
+            label1.Visible = false;
+            bytes.Visible = false;
+            langs.Visible = false;
+            label3.Visible = false;
+            avatar.Visible = false;
+            username.Visible = false;
+            if (currentPage > 1)
+            {
+                currentPage--;
+                pageCount();
+                searchResults.Items.Clear();
+                errorMessage.Text = "";
+                string searchParam = "";
+                switch (searchBox.Text)
+                {
+                    case "Profile Info":
+                        searchParam = searchText.Text + "&page=" + currentPage;
+                        break;
+                    case "Language":
+                        searchParam = "language:" + searchText.Text + "&page=" + currentPage; ;
+                        break;
+                    case "Rating":
+                        searchParam = "stars:" + searchText.Text + "&page=" + currentPage; ;
+                        break;
+
+                }
+                try
+                {
+                    // string search = searchText.Text;
+                    tempr = await test.GetReposAsync(searchParam);
+
+                    foreach (var t in tempr)
+                    {
+                        ListViewItem row = new ListViewItem(t.Value.RepName);
+                        row.SubItems.Add(t.Value.Username);
+                        row.SubItems.Add(t.Value.Description);
+                        searchResults.Items.Add(row);
+                    }
+
+                }
+                catch (ArgumentNullException)
+                {
+                    MessageBox.Show("Please select a search parameter");
+                }
+                catch (Exception)
+                {
+                    errorMessage.Text = "ERROR: Connection Failed. Please Try again.";
+                }
+
+            }
+        }
+
+        private void repo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bytes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void pageCount()
+        {
+            pages.Text = "Page " + currentPage + " of " + totalPages;
+        }
 
 
     }

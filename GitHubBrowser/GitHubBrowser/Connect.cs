@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using githubConnect;
+using System.Text.RegularExpressions;
 
 namespace githubConnect
 {
@@ -14,19 +16,19 @@ namespace githubConnect
     {
         // You'll need to put your own OAuth token here
         // It needs to have repo deletion capability
-        private const string TOKEN = "a77976d3fc3fbaa2bff52877ad1c169fb3c26fda";
+        private const string TOKEN = "3792714c6f71ccff9935b415a8d29c9c77ce0964";
 
         // You'll need to put your own GitHub user name here
-        private const string USER_NAME = "UofUMattMatt";
+        private const string USER_NAME = "mahowa";
 
         // You'll need to put your own login name here
-        private const string EMAIL = "ramilakus@yahoo.com";
+        private const string EMAIL = "jdbball1@gmail.com";
 
         // You'll need to put one of your public REPOs here
-        private const string PUBLIC_REPO = "PairWork";
-
+        private const string PUBLIC_REPO = "TEST_REPO";
         public Dictionary<string, Repository> repos;
-
+        public string header;
+        public int pageNum;
         public Connect() { }
         public HttpClient CreateClient()
         {
@@ -71,14 +73,14 @@ namespace githubConnect
 
                      
                     }
-
+                    header = response.Headers.GetValues("Link").FirstOrDefault();
+                    pageSift(header);
                     return repos;
                 }
                 else
                 {
+                   // return repos;
                     throw new Exception("Connection Failed ");
-                   /* Console.WriteLine("Error: " + response.StatusCode);
-                    Console.WriteLine(response.ReasonPhrase);*/
                 }
          /*       foreach (var key in repos)
                 {
@@ -102,6 +104,12 @@ namespace githubConnect
                     }
                 }*/
             }
+        }
+        public void pageSift(string link){
+            string pattern = @"(\d+)";
+
+            foreach (Match match in Regex.Matches(link, pattern))
+                pageNum = Convert.ToInt16(match.Value);
         }
     }
 }

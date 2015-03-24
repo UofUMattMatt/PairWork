@@ -47,3 +47,17 @@ C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\obj\Debug\GitHub
 C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.GitHubBrowser.resources
 C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.Properties.Resources.resources
 C:\Users\Matt\Source\Repos\PairWork\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.csproj.GenerateResource.Cache
+C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowser\bin\Debug\GitHubBrowser.exe.config
+C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.exe
+C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.pdb
+C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowser\bin\Debug\GitHubBrowser.exe
+C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowser\bin\Debug\GitHubBrowser.pdb
+C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowser\bin\Debug\ClassLibrary1.dll
+C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowser\bin\Debug\Newtonsoft.Json.dll
+C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowser\bin\Debug\ClassLibrary1.pdb
+C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowser\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowser\bin\Debug\Newtonsoft.Json.xml
+C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.csprojResolveAssemblyReference.cache
+C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.GitHubBrowser.resources
+C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.Properties.Resources.resources
+C:\Users\howa\Source\Repos\PairWork4\GitHubBrowser\GitHubBrowser\obj\Debug\GitHubBrowser.csproj.GenerateResource.Cache
