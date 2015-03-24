@@ -14,7 +14,7 @@ namespace githubConnect
     {
         // You'll need to put your own OAuth token here
         // It needs to have repo deletion capability
-        private const string TOKEN = "dabe9c33dae687b7c5ab10d16fd80647aef0b62b";
+        private const string TOKEN = "505ca4ee2aca4bde381ef5c32041d0627efb191d";
 
         // You'll need to put your own GitHub user name here
         private const string USER_NAME = "mahowa";
@@ -72,7 +72,7 @@ namespace githubConnect
                 }
                 else
                 {
-                    throw new Exception("YOU SUCK ");
+                    throw new Exception("Connection Failled ");
                    /* Console.WriteLine("Error: " + response.StatusCode);
                     Console.WriteLine(response.ReasonPhrase);*/
                 }
