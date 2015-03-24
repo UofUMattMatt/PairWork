@@ -56,6 +56,9 @@ namespace GitHubBrowser
                 tempr.TryGetValue(item.SubItems[1].Text + item.SubItems[0].Text, out r);
                 string avatarURL = r.Avatar;
                 avatar.ImageLocation = avatarURL;
+                username.Text = r.Username;
+                repolabel.Text = r.RepName;
+
                // avatar.Load(avatarURL);
             }
         }

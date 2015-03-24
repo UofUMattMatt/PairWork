@@ -42,6 +42,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             this.avatar = new System.Windows.Forms.PictureBox();
+            this.username = new System.Windows.Forms.Label();
+            this.repo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.langs = new System.Windows.Forms.Label();
+            this.bytes = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.repolabel = new System.Windows.Forms.Label();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
@@ -166,12 +173,82 @@
             this.avatar.TabIndex = 10;
             this.avatar.TabStop = false;
             // 
+            // username
+            // 
+            this.username.AutoSize = true;
+            this.username.Location = new System.Drawing.Point(717, 55);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(35, 13);
+            this.username.TabIndex = 11;
+            this.username.Text = "label1";
+            // 
+            // repo
+            // 
+            this.repo.AutoSize = true;
+            this.repo.Location = new System.Drawing.Point(589, 185);
+            this.repo.Name = "repo";
+            this.repo.Size = new System.Drawing.Size(57, 13);
+            this.repo.TabIndex = 12;
+            this.repo.Text = "Repository";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(589, 233);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Languages";
+            // 
+            // langs
+            // 
+            this.langs.AutoSize = true;
+            this.langs.Location = new System.Drawing.Point(601, 266);
+            this.langs.Name = "langs";
+            this.langs.Size = new System.Drawing.Size(35, 13);
+            this.langs.TabIndex = 14;
+            this.langs.Text = "label2";
+            // 
+            // bytes
+            // 
+            this.bytes.AutoSize = true;
+            this.bytes.Location = new System.Drawing.Point(717, 233);
+            this.bytes.Name = "bytes";
+            this.bytes.Size = new System.Drawing.Size(33, 13);
+            this.bytes.TabIndex = 15;
+            this.bytes.Text = "Bytes";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(715, 266);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "label3";
+            // 
+            // repolabel
+            // 
+            this.repolabel.AutoSize = true;
+            this.repolabel.Location = new System.Drawing.Point(682, 185);
+            this.repolabel.Name = "repolabel";
+            this.repolabel.Size = new System.Drawing.Size(35, 13);
+            this.repolabel.TabIndex = 17;
+            this.repolabel.Text = "label2";
+            // 
             // GitHubBrowser
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 387);
+            this.Controls.Add(this.repolabel);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.bytes);
+            this.Controls.Add(this.langs);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.repo);
+            this.Controls.Add(this.username);
             this.Controls.Add(this.avatar);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.button1);
@@ -208,6 +285,13 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.PictureBox avatar;
+        private System.Windows.Forms.Label username;
+        private System.Windows.Forms.Label repo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label langs;
+        private System.Windows.Forms.Label bytes;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label repolabel;
     }
 }
 

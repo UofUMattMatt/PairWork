@@ -14,7 +14,7 @@ namespace githubConnect
     {
         // You'll need to put your own OAuth token here
         // It needs to have repo deletion capability
-        private const string TOKEN = "505ca4ee2aca4bde381ef5c32041d0627efb191d";
+        private const string TOKEN = "e94b46a0074b0bc7c73d67bfd8af4311fde1811e";
 
         // You'll need to put your own GitHub user name here
         private const string USER_NAME = "mahowa";
