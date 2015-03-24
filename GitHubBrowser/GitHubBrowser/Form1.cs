@@ -17,12 +17,14 @@ namespace GitHubBrowser
     public partial class GitHubBrowser : Form
     {
         private Connect test;
+        public Dictionary<string, Repository> tempr;
         
         public GitHubBrowser()
         {
             InitializeComponent();
             searchText.Focus();
             test = new Connect();
+            searchResults.FullRowSelect = true; 
         }
 
         private void searchBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,53 +53,41 @@ namespace GitHubBrowser
 
             try
             {
-                string search = searchText.Text;
-                Dictionary<string, Repository> tempr = await test.GetReposAsync(searchParam);
-                ImageList avatars = ImageList(tempr);
+            string search = searchText.Text;
+            tempr = await test.GetReposAsync(searchText.Text);
 
-
-                foreach (var t in tempr)
-                {
-                    searchResults.SmallImageList = avatars;
-                    ListViewItem row = new ListViewItem(t.Value.Avatar);
-                    row.SubItems.Add(t.Value.RepName);      
-                    row.SubItems.Add(t.Value.Username);
-                    row.SubItems.Add(t.Value.Description);
-                    searchResults.Items.Add(row);
-                }
+            foreach (var t in tempr)
+            {
+                ListViewItem row = new ListViewItem(t.Value.RepName);
+                row.SubItems.Add(t.Value.Username);
+                row.SubItems.Add(t.Value.Description);
+                searchResults.Items.Add(row);
+            }
 
             }
             catch(ArgumentNullException)
             {
                 MessageBox.Show("Please select a search parameter");
             }
-
+           
 
            
         }
-        public static Image GetImageFromUrl(string url)
-        {
-            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(url);
 
-            using (HttpWebResponse httpWebReponse = (HttpWebResponse)httpWebRequest.GetResponse())
-            {
-                using (Stream stream = httpWebReponse.GetResponseStream())
-                {
-                    return Image.FromStream(stream);
-                }
-            }
-        }
 
-        public ImageList ImageList(Dictionary<string, Repository> tempr)
+        private void searchResults_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ImageList imagelist1 = new ImageList();
-            imagelist1.ImageSize = new Size(25, 25);
+            ListView.SelectedListViewItemCollection reps= searchResults.SelectedItems;
+            Repository r;
+            foreach(ListViewItem item in reps){
+                tempr.TryGetValue(item.SubItems[1].Text + item.SubItems[0].Text, out r);
+                string avatarURL = r.Avatar;
+                avatar.ImageLocation = avatarURL;
+                username.Text = r.Username;
+                repolabel.Text = r.RepName;
             
-            foreach(var t in tempr){
-                Image i = GetImageFromUrl(t.Value.Avatar);
-                imagelist1.Images.Add(i);
+               // avatar.Load(avatarURL);
             }
-            return imagelist1;
         }
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -112,6 +102,11 @@ namespace GitHubBrowser
                                  + "-\t\t- ex >= 500 would search for a parameter for at least 500 stars";
            
             MessageBox.Show(helpMessage);
+        }
+
+        private void searchText_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
 
