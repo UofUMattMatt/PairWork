@@ -49,6 +49,8 @@
             this.bytes = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.repolabel = new System.Windows.Forms.Label();
+            this.errorMessage = new System.Windows.Forms.Label();
+            this.pages = new System.Windows.Forms.Label();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +62,7 @@
             this.helpToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(815, 24);
+            this.mainMenuStrip.Size = new System.Drawing.Size(717, 24);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -78,13 +80,16 @@
             // 
             // searchResults
             // 
+            this.searchResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.searchResults.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.repName,
             this.repOwner,
             this.repDescription});
             this.searchResults.Location = new System.Drawing.Point(12, 55);
             this.searchResults.Name = "searchResults";
-            this.searchResults.Size = new System.Drawing.Size(561, 300);
+            this.searchResults.Size = new System.Drawing.Size(463, 306);
             this.searchResults.TabIndex = 3;
             this.searchResults.UseCompatibleStateImageBehavior = false;
             this.searchResults.View = System.Windows.Forms.View.Details;
@@ -108,22 +113,24 @@
             // prev_b
             // 
             this.prev_b.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.prev_b.Location = new System.Drawing.Point(12, 361);
+            this.prev_b.Location = new System.Drawing.Point(12, 367);
             this.prev_b.Name = "prev_b";
             this.prev_b.Size = new System.Drawing.Size(59, 23);
             this.prev_b.TabIndex = 4;
             this.prev_b.Text = "Previous";
             this.prev_b.UseVisualStyleBackColor = true;
+            this.prev_b.Click += new System.EventHandler(this.prev_b_Click);
             // 
             // nxt_b
             // 
             this.nxt_b.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nxt_b.Location = new System.Drawing.Point(77, 361);
+            this.nxt_b.Location = new System.Drawing.Point(77, 367);
             this.nxt_b.Name = "nxt_b";
             this.nxt_b.Size = new System.Drawing.Size(59, 23);
             this.nxt_b.TabIndex = 5;
             this.nxt_b.Text = "Next";
             this.nxt_b.UseVisualStyleBackColor = true;
+            this.nxt_b.Click += new System.EventHandler(this.nxt_b_Click);
             // 
             // searchBox
             // 
@@ -164,10 +171,12 @@
             this.cancel.TabIndex = 9;
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
             // avatar
             // 
-            this.avatar.Location = new System.Drawing.Point(579, 55);
+            this.avatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.avatar.Location = new System.Drawing.Point(481, 55);
             this.avatar.Name = "avatar";
             this.avatar.Size = new System.Drawing.Size(92, 96);
             this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -176,35 +185,42 @@
             // 
             // username
             // 
+            this.username.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.username.AutoSize = true;
-            this.username.Location = new System.Drawing.Point(717, 55);
+            this.username.Font = new System.Drawing.Font("Freestyle Script", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username.Location = new System.Drawing.Point(579, 55);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(35, 13);
+            this.username.Size = new System.Drawing.Size(0, 32);
             this.username.TabIndex = 11;
-            this.username.Text = "label1";
             // 
             // repo
             // 
+            this.repo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.repo.AutoSize = true;
-            this.repo.Location = new System.Drawing.Point(589, 185);
+            this.repo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repo.Location = new System.Drawing.Point(491, 185);
             this.repo.Name = "repo";
-            this.repo.Size = new System.Drawing.Size(57, 13);
+            this.repo.Size = new System.Drawing.Size(80, 17);
             this.repo.TabIndex = 12;
-            this.repo.Text = "Repository";
+            this.repo.Text = "Repository:";
+            this.repo.Click += new System.EventHandler(this.repo_Click);
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(589, 233);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(499, 233);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.Size = new System.Drawing.Size(79, 17);
             this.label1.TabIndex = 13;
             this.label1.Text = "Languages";
             // 
             // langs
             // 
+            this.langs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.langs.AutoSize = true;
-            this.langs.Location = new System.Drawing.Point(601, 266);
+            this.langs.Location = new System.Drawing.Point(521, 266);
             this.langs.Name = "langs";
             this.langs.Size = new System.Drawing.Size(35, 13);
             this.langs.TabIndex = 14;
@@ -212,17 +228,21 @@
             // 
             // bytes
             // 
+            this.bytes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bytes.AutoSize = true;
-            this.bytes.Location = new System.Drawing.Point(717, 233);
+            this.bytes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bytes.Location = new System.Drawing.Point(626, 233);
             this.bytes.Name = "bytes";
-            this.bytes.Size = new System.Drawing.Size(33, 13);
+            this.bytes.Size = new System.Drawing.Size(43, 17);
             this.bytes.TabIndex = 15;
             this.bytes.Text = "Bytes";
+            this.bytes.Click += new System.EventHandler(this.bytes_Click);
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(715, 266);
+            this.label3.Location = new System.Drawing.Point(630, 266);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 16;
@@ -230,19 +250,43 @@
             // 
             // repolabel
             // 
+            this.repolabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.repolabel.AutoSize = true;
-            this.repolabel.Location = new System.Drawing.Point(682, 185);
+            this.repolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repolabel.ForeColor = System.Drawing.Color.Indigo;
+            this.repolabel.Location = new System.Drawing.Point(573, 185);
             this.repolabel.Name = "repolabel";
-            this.repolabel.Size = new System.Drawing.Size(35, 13);
+            this.repolabel.Size = new System.Drawing.Size(52, 18);
             this.repolabel.TabIndex = 17;
             this.repolabel.Text = "label2";
+            // 
+            // errorMessage
+            // 
+            this.errorMessage.AutoSize = true;
+            this.errorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorMessage.ForeColor = System.Drawing.Color.Crimson;
+            this.errorMessage.Location = new System.Drawing.Point(221, 367);
+            this.errorMessage.Name = "errorMessage";
+            this.errorMessage.Size = new System.Drawing.Size(0, 17);
+            this.errorMessage.TabIndex = 18;
+            // 
+            // pages
+            // 
+            this.pages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pages.AutoSize = true;
+            this.pages.Location = new System.Drawing.Point(142, 372);
+            this.pages.Name = "pages";
+            this.pages.Size = new System.Drawing.Size(0, 13);
+            this.pages.TabIndex = 19;
             // 
             // GitHubBrowser
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 387);
+            this.ClientSize = new System.Drawing.Size(717, 393);
+            this.Controls.Add(this.pages);
+            this.Controls.Add(this.errorMessage);
             this.Controls.Add(this.repolabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.bytes);
@@ -260,6 +304,7 @@
             this.Controls.Add(this.searchResults);
             this.Controls.Add(this.mainMenuStrip);
             this.MainMenuStrip = this.mainMenuStrip;
+            this.MinimumSize = new System.Drawing.Size(488, 331);
             this.Name = "GitHubBrowser";
             this.Text = "GitHub Browser";
             this.mainMenuStrip.ResumeLayout(false);
@@ -293,6 +338,8 @@
         private System.Windows.Forms.Label bytes;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label repolabel;
+        private System.Windows.Forms.Label errorMessage;
+        private System.Windows.Forms.Label pages;
     }
 }
 
