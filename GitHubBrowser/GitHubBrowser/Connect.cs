@@ -16,16 +16,16 @@ namespace githubConnect
     {
         // You'll need to put your own OAuth token here
         // It needs to have repo deletion capability
-        private const string TOKEN = "9aa3463f2763e664792b13534949acba34d5502f";
+        private const string TOKEN = "1d4df00ccd2a5696d7b15a8c800e47bae7ac598d";
 
         // You'll need to put your own GitHub user name here
-        private const string USER_NAME = "mahowa";
+        private const string USER_NAME = "UofUMattMatt";
 
         // You'll need to put your own login name here
-        private const string EMAIL = "jdbball1@gmail.com";
+        private const string EMAIL = "ramilakus@yahoo.com";
 
         // You'll need to put one of your public REPOs here
-        private const string PUBLIC_REPO = "TEST_REPO";
+        private const string PUBLIC_REPO = "PairWork";
         public Dictionary<string, Repository> repos;
         public string header;
         public int pageNum;
@@ -47,13 +47,15 @@ namespace githubConnect
         /// </summary> 
         public async Task<Dictionary<string, Repository>> GetReposAsync(string searchterm, CancellationToken cancel)
         {
+            if(searchterm == "")
+                throw new ArgumentNullException();
             repos = new Dictionary<string, Repository>();                                                       //Dictionary of repositories
             using (HttpClient client = CreateClient())
             {
                 HttpResponseMessage response = await client.GetAsync("/search/repositories?q=" + searchterm);   
                 if (response.IsSuccessStatusCode)
                 {
-                    String login = "", avatar = "", repname = "", description = "", lang = "", bytes = "";
+                    String login = "", avatar = "", repname = "", description = "", lang = "", bytes = "", starCount = "";
                     Languages language;
                     String result = await response.Content.ReadAsStringAsync();
                     dynamic orgs = JsonConvert.DeserializeObject(result);
@@ -65,15 +67,26 @@ namespace githubConnect
                         description = c.description;    //repo description
                         lang = c.language;              //main repo Language
                         bytes = c.size;                 //repo size
+                        starCount = c.watchers_count; //Get stars
                         if (String.IsNullOrWhiteSpace(lang))
                             lang = "Unknown";           //Unknown repo language
                         language = new Languages(lang, bytes);
-                        Repository temp = new Repository(login, repname, description, avatar, null, language);      //Creates repository object
+                        Repository temp = new Repository(login, repname, description, avatar, null, language, starCount);      //Creates repository object
                         repos.Add(login + repname, temp);                 //KEY IS LOGIN + REPNAME
                         cancel.ThrowIfCancellationRequested();            //Allows cancelation of task
                     }
-                    header = response.Headers.GetValues("Link").FirstOrDefault();   //Get link header
-                    pageSift(header);       //Get page number (GITHUB API MAXIMUM '34')
+
+                    //The only reason this would fail is if the link doesn't exist (most likely because there is only one page)
+                    try
+                    {
+                        header = response.Headers.GetValues("Link").FirstOrDefault();   //Get link header
+                        pageSift(header);       //Get page number (GITHUB API MAXIMUM '34')
+                    }
+                    catch (Exception)
+                    {
+                        pageNum = 1;
+                    }
+
                 }
                 else
                     throw new Exception("Connection Failed ");

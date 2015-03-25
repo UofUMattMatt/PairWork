@@ -54,6 +54,8 @@
             this.pages = new System.Windows.Forms.Label();
             this.loading = new System.Windows.Forms.PictureBox();
             this.email = new System.Windows.Forms.Label();
+            this.StarLabel = new System.Windows.Forms.Label();
+            this.starlabelcount = new System.Windows.Forms.Label();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loading)).BeginInit();
@@ -66,7 +68,7 @@
             this.helpToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(717, 24);
+            this.mainMenuStrip.Size = new System.Drawing.Size(751, 24);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -94,7 +96,7 @@
             this.repDescription});
             this.searchResults.Location = new System.Drawing.Point(12, 55);
             this.searchResults.Name = "searchResults";
-            this.searchResults.Size = new System.Drawing.Size(463, 306);
+            this.searchResults.Size = new System.Drawing.Size(497, 306);
             this.searchResults.TabIndex = 3;
             this.searchResults.UseCompatibleStateImageBehavior = false;
             this.searchResults.View = System.Windows.Forms.View.Details;
@@ -179,7 +181,7 @@
             // avatar
             // 
             this.avatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.avatar.Location = new System.Drawing.Point(481, 55);
+            this.avatar.Location = new System.Drawing.Point(515, 55);
             this.avatar.Name = "avatar";
             this.avatar.Size = new System.Drawing.Size(92, 96);
             this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -190,10 +192,10 @@
             // 
             this.username.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.username.AutoSize = true;
-            this.username.Font = new System.Drawing.Font("Freestyle Script", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username.Location = new System.Drawing.Point(579, 55);
+            this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username.Location = new System.Drawing.Point(613, 55);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(0, 32);
+            this.username.Size = new System.Drawing.Size(0, 31);
             this.username.TabIndex = 11;
             // 
             // repo
@@ -201,7 +203,7 @@
             this.repo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.repo.AutoSize = true;
             this.repo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.repo.Location = new System.Drawing.Point(491, 185);
+            this.repo.Location = new System.Drawing.Point(525, 185);
             this.repo.Name = "repo";
             this.repo.Size = new System.Drawing.Size(80, 17);
             this.repo.TabIndex = 12;
@@ -212,7 +214,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(499, 233);
+            this.label1.Location = new System.Drawing.Point(528, 245);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 17);
             this.label1.TabIndex = 13;
@@ -222,7 +224,7 @@
             // 
             this.langs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.langs.AutoSize = true;
-            this.langs.Location = new System.Drawing.Point(521, 266);
+            this.langs.Location = new System.Drawing.Point(550, 278);
             this.langs.Name = "langs";
             this.langs.Size = new System.Drawing.Size(35, 13);
             this.langs.TabIndex = 14;
@@ -233,7 +235,7 @@
             this.bytes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bytes.AutoSize = true;
             this.bytes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bytes.Location = new System.Drawing.Point(626, 233);
+            this.bytes.Location = new System.Drawing.Point(659, 245);
             this.bytes.Name = "bytes";
             this.bytes.Size = new System.Drawing.Size(43, 17);
             this.bytes.TabIndex = 15;
@@ -243,7 +245,7 @@
             // 
             this.bytelabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bytelabel.AutoSize = true;
-            this.bytelabel.Location = new System.Drawing.Point(630, 266);
+            this.bytelabel.Location = new System.Drawing.Point(659, 278);
             this.bytelabel.Name = "bytelabel";
             this.bytelabel.Size = new System.Drawing.Size(35, 13);
             this.bytelabel.TabIndex = 16;
@@ -255,7 +257,7 @@
             this.repolabel.AutoSize = true;
             this.repolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.repolabel.ForeColor = System.Drawing.Color.Indigo;
-            this.repolabel.Location = new System.Drawing.Point(573, 185);
+            this.repolabel.Location = new System.Drawing.Point(607, 185);
             this.repolabel.Name = "repolabel";
             this.repolabel.Size = new System.Drawing.Size(52, 18);
             this.repolabel.TabIndex = 17;
@@ -283,10 +285,10 @@
             // 
             // loading
             // 
-            this.loading.Image = global::GitHubBrowser.Properties.Resources.loading;
-            this.loading.Location = new System.Drawing.Point(450, 16);
+            this.loading.Image = global::GitHubBrowser.Properties.Resources.ajax_loader;
+            this.loading.Location = new System.Drawing.Point(619, 55);
             this.loading.Name = "loading";
-            this.loading.Size = new System.Drawing.Size(44, 37);
+            this.loading.Size = new System.Drawing.Size(95, 96);
             this.loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.loading.TabIndex = 20;
             this.loading.TabStop = false;
@@ -295,17 +297,41 @@
             // 
             this.email.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.email.AutoSize = true;
-            this.email.Location = new System.Drawing.Point(579, 98);
+            this.email.Location = new System.Drawing.Point(613, 98);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(0, 13);
             this.email.TabIndex = 21;
+            // 
+            // StarLabel
+            // 
+            this.StarLabel.AutoSize = true;
+            this.StarLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StarLabel.Location = new System.Drawing.Point(525, 215);
+            this.StarLabel.Name = "StarLabel";
+            this.StarLabel.Size = new System.Drawing.Size(45, 17);
+            this.StarLabel.TabIndex = 22;
+            this.StarLabel.Text = "Stars:";
+            // 
+            // starlabelcount
+            // 
+            this.starlabelcount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.starlabelcount.AutoSize = true;
+            this.starlabelcount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.starlabelcount.ForeColor = System.Drawing.Color.Blue;
+            this.starlabelcount.Location = new System.Drawing.Point(607, 214);
+            this.starlabelcount.Name = "starlabelcount";
+            this.starlabelcount.Size = new System.Drawing.Size(52, 18);
+            this.starlabelcount.TabIndex = 23;
+            this.starlabelcount.Text = "label2";
             // 
             // GitHubBrowser
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 393);
+            this.ClientSize = new System.Drawing.Size(751, 393);
+            this.Controls.Add(this.starlabelcount);
+            this.Controls.Add(this.StarLabel);
             this.Controls.Add(this.mainMenuStrip);
             this.Controls.Add(this.email);
             this.Controls.Add(this.avatar);
@@ -367,6 +393,8 @@
         private System.Windows.Forms.Label pages;
         private System.Windows.Forms.PictureBox loading;
         private System.Windows.Forms.Label email;
+        private System.Windows.Forms.Label StarLabel;
+        private System.Windows.Forms.Label starlabelcount;
     }
 }
 

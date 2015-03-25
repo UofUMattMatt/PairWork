@@ -43,6 +43,10 @@ namespace GitHubBrowser
             username.Visible = false;
             loading.Visible = false;
             searchBox.SelectedIndex = 0;
+            email.Visible = false;
+            StarLabel.Visible = false;
+            starlabelcount.Visible = false;
+            cancel.Visible = false;
         }
 
         private async void SearchButton(object sender, EventArgs e)
@@ -57,6 +61,11 @@ namespace GitHubBrowser
             bytelabel.Visible = false;
             avatar.Visible = false;
             username.Visible = false;
+            email.Visible = false;
+            StarLabel.Visible = false;
+            starlabelcount.Visible = false;
+            cancel.Visible = true;
+
             currentPage = 1;
             totalPages = 0;
             searchResults.Items.Clear();
@@ -91,12 +100,14 @@ namespace GitHubBrowser
 
             }
             catch (OperationCanceledException) { errorMessage.Text = "Operation was cancelled"; }
+            catch (ArgumentNullException) { errorMessage.Text = "Enter something into the search parameter!"; }
             catch (Exception) { errorMessage.Text = "ERROR: Connection Failed. Please Try again."; }
             finally
             {   //GUI aesthetics 
                 loading.Visible = false;    
                 totalPages = repositoryRequest.pageNum;
                 pageCount();
+                cancel.Visible = false;
             }
         }
 
@@ -113,6 +124,7 @@ namespace GitHubBrowser
                 avatar.ImageLocation = avatarURL;
                 username.Text = r.Username;
                 repolabel.Text = r.RepName;
+                starlabelcount.Text = r.Stars;
                 
                 if(String.IsNullOrWhiteSpace(r.Email))
                 {
@@ -144,6 +156,9 @@ namespace GitHubBrowser
             avatar.Visible = true;
             username.Visible = true;
             loading.Visible = false;
+            email.Visible = true;
+            StarLabel.Visible = true;
+            starlabelcount.Visible = true;
         }
 
         private async void nxt_b_Click(object sender, EventArgs e)
@@ -157,6 +172,10 @@ namespace GitHubBrowser
             bytelabel.Visible = false;
             avatar.Visible = false;
             username.Visible = false;
+            email.Visible = false;
+            StarLabel.Visible = false;
+            starlabelcount.Visible = false;
+
             if (currentPage < totalPages)
             {
                 currentPage++;
@@ -223,6 +242,10 @@ namespace GitHubBrowser
             bytelabel.Visible = false;
             avatar.Visible = false;
             username.Visible = false;
+            email.Visible = false;
+            StarLabel.Visible = false;
+            starlabelcount.Visible = false;
+
             if (currentPage > 1)
             {
                 currentPage--;
@@ -287,14 +310,23 @@ namespace GitHubBrowser
 
         private void helpToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            string helpMessage = "\t\t\t GitHUb Browswer Help\n"
-                                + "If searching for repository whose name, description, or readme contains something:\n"
-                                + "\t-Enter your desired search parameter and select Profile Info, then select search or press enter\n"
-                                + "If searching for repositories by a specific language:\n"
-                                + "\t-Enter your desired search language then select Language, again select search or press enter\n"
-                                + "If searching for a respository with a specific rating:\n"
-                                + "\t-Enter a comparator followed by the desired number of starts:\n"
-                                + "-\t\t- ex >= 500 would search for a parameter for at least 500 stars";
+            //Spaces inbetween string lines show where the string has a double return.
+            string helpMessage = "\t\t\t GitHub Browswer Help\n\n"
+                                + "Searching a repo by: name, description, or readme:\n"
+                                + "Enter your desired search parameter and select Profile Info, then select search or press enter\n\n"
+
+                                + "Searching a repo by a language:\n"
+                                + "Enter your desired  language then select Language, again select search or press enter\n\n"
+
+                                + "Searching a repo by star rating:\n"
+                                + "Enter a comparator followed by the desired number of starts\n"
+                                + "ex. >= 500 would search for a parameter for at least 500 stars\n\n"
+
+                                + "To cancel an operation click the cancel button during an operation\n"
+                                + "To navigate pages, press previous or next to traverse through pages\n"
+                                + "To get more information for a respository, select the row; information will be\n"
+                                + "displayed to the right of the results.";
+                                
 
             MessageBox.Show(helpMessage);
         }
